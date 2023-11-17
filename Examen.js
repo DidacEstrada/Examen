@@ -25,11 +25,13 @@ window.onload = async () => {
         const newElement2 = document.createElement('ul');
         newElement2.innerHTML = `
         <li id="elixir">${elixir.name}</li>
-        <button id="boto", onclick = elixirClicat(${elixir.id})> Ingredients </button>
+        <button id="boto" onclick = "elixirClicat('${elixir.id}')"> Ingredients </button>
         `;
         pocions.appendChild(newElement2);
 
     }
+
+    
 
 
     
@@ -47,8 +49,33 @@ async function getAllWizards(){
 
 }
 
-function elixirClicat(id){
-  
+async function elixirClicat(id){
+const elixir = await getIngredients(id);
+console.log(elixir);
+
+
+
+for(const ingredientes of elixir.ingredients){
+
+   const mainHtmlElement = document.getElementById('llistaWizards');
+    const newElement = document.createElement('h4');
+    newElement.innerText = "Ingredientes de la Pocion:"+ingredientes.name;
+    mainHtmlElement.appendChild(newElement);
+    
+  const ing = document.getElementById('llistaWizards');
+  const newElement3 = document.createElement('ul');
+  newElement3.innerHTML = `
+  <li id="ingredients">${ingredientes.name}</li>
+  `;
+  ing.appendChild(newElement3);
+
+}
+}
+
+async function getIngredients(id){
+  const response= await fetch(`${BASE_URL}/elixirs/${id}`);
+  const data = await response.json();
+  return data;
 }
 
 
