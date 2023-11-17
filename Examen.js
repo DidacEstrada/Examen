@@ -9,7 +9,7 @@ window.onload = async () => {
   for(const wizard of wizards){
     const mainHtmlElement = document.getElementById('llistaWizards');
     const newElement = document.createElement('h4');
-    
+  
     if(wizard.firstName!==null){
    newElement.innerText = wizard.firstName + wizard.lastName + ":";
    mainHtmlElement.appendChild(newElement);
