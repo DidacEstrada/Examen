@@ -31,6 +31,8 @@ window.onload = async () => {
 
     }
 
+
+
     
 
 
@@ -48,6 +50,13 @@ async function getAllWizards(){
   return data;
 
 }
+async function getAllHouses(){
+  const response = await fetch(`${BASE_URL}/Houses`);
+  const data = await response.json();
+  return data;
+
+}
+
 
 async function elixirClicat(id){
 const elixir = await getIngredients(id);
