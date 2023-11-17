@@ -7,29 +7,25 @@ window.onload = async () => {
 
   
   for(const wizard of wizards){
-    const mainHtmlElement = document.getElementById('wizard');
-    const newElement = document.createElement('p');
+    const mainHtmlElement = document.getElementById('llistaWizards');
+    const newElement = document.createElement('h4');
     
     if(wizard.firstName!==null){
-    newElement.innerHTML = `
-    <h4>${wizard.firstName} ${wizard.lastName}:</h4>
-    `;
-    mainHtmlElement.appendChild(newElement);
+   newElement.innerText = wizard.firstName + wizard.lastName + ":";
+   mainHtmlElement.appendChild(newElement);
     } else{
-      newElement.innerHTML = `
-    <p>${wizard.lastName}</p>
-    `;
-    mainHtmlElement.appendChild(newElement);
+      newElement.innerText =wizard.lastName + ":";
+   mainHtmlElement.appendChild(newElement);
     }
 
 
     
-    for(const elixirs of wizard.elixirs){
-        const pocions = document.getElementById('llistaPocions');
-        const newElement2 = document.createElement('li');
+    for(const elixir of wizard.elixirs){
+        const pocions = document.getElementById('llistaWizards');
+        const newElement2 = document.createElement('ul');
         newElement2.innerHTML = `
-        <li id="elixir">${elixirs.name}</li>
-        <button> ingredients <button>
+        <li id="elixir">${elixir.name}</li>
+        <button id="boto", onclick = elixirClicat(${elixir.id})> Ingredients </button>
         `;
         pocions.appendChild(newElement2);
 
@@ -38,6 +34,9 @@ window.onload = async () => {
 
     
 }
+
+
+
 };
 
 
@@ -47,3 +46,9 @@ async function getAllWizards(){
   return data;
 
 }
+
+function elixirClicat(id){
+  
+}
+
+
