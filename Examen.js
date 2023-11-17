@@ -54,14 +54,14 @@ const elixir = await getIngredients(id);
 console.log(elixir);
 
 
-
+const mainHtmlElement = document.getElementById('llistaWizards');
+    const newElement = document.createElement('h4');
+    newElement.innerText = "Ingredientes de la Pocion:"+elixir.name;
+    mainHtmlElement.appendChild(newElement);
 for(const ingredientes of elixir.ingredients){
 
-   const mainHtmlElement = document.getElementById('llistaWizards');
-    const newElement = document.createElement('h4');
-    newElement.innerText = "Ingredientes de la Pocion:"+ingredientes.name;
-    mainHtmlElement.appendChild(newElement);
-    
+   
+
   const ing = document.getElementById('llistaWizards');
   const newElement3 = document.createElement('ul');
   newElement3.innerHTML = `
