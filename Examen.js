@@ -2,19 +2,15 @@ const BASE_URL =  'https://wizard-world-api.herokuapp.com';
 
 window.onload = async () => {
   const wizards = await getAllWizards();
-  const mainHtmlElement = document.getElementById('main');
-    const newElement = document.createElement('div');
-    newElement.innerHTML = `
-    <h2>Wizards</h2>
-    `;
-    mainHtmlElement.appendChild(newElement);
+  
   for(const wizard of wizards){
     const mainHtmlElement = document.getElementById('main');
     const newElement = document.createElement('div');
     
     if(wizard.firstName!==null){
     newElement.innerHTML = `
-    <p>${wizard.firstName} ${wizard.lastName}</p>
+    <h4>${wizard.firstName} ${wizard.lastName}:</h4>
+    <p>${wizard.elixirs.name}</p>
     `;
     mainHtmlElement.appendChild(newElement);
     } else{
