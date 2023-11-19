@@ -14,13 +14,15 @@ window.onload = async () => {
     if(wizard.firstName!==null){
    newElement.innerText = wizard.firstName + wizard.lastName + ":";
    mainHtmlElement.appendChild(newElement);
+   boton.onclick = destacarWizard(wizard.firstName + wizard.lastName);
     } else{
       newElement.innerText =wizard.lastName + ":";
    mainHtmlElement.appendChild(newElement);
+   boton.onclick = destacarWizard(wizard.lastName);
     }
 
     
-    boton.onclick = destacarElement();
+    
 
     boton.innerHTML='Destacar';
     
@@ -107,8 +109,12 @@ contingutIng= contingutIng + tancarContingut;
 ing.innerHTML=contingutIng;
 }
 
-async function destacarElement(){
+async function destacarWizard(nom){
+  const flotant = document.getElementById('flotant');
+  const mago = document.createElement('p')
+  mago.innerText= nom;
 
+  flotant.appendChild(mago);
 }
 
 async function getIngredients(id){
