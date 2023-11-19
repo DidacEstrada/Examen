@@ -9,7 +9,7 @@ window.onload = async () => {
   for(const wizard of wizards){
     const mainHtmlElement = document.getElementById('llistaWizards');
     const newElement = document.createElement('h4');
-  
+    
     if(wizard.firstName!==null){
    newElement.innerText = wizard.firstName + wizard.lastName + ":";
    mainHtmlElement.appendChild(newElement);
@@ -62,23 +62,38 @@ async function elixirClicat(id){
 const elixir = await getIngredients(id);
 console.log(elixir);
 
+const titol = document.getElementById('titolIngredients');
 
-const mainHtmlElement = document.getElementById('llistaWizards');
-    const newElement = document.createElement('h4');
-    newElement.innerText = "Ingredientes de la Pocion:"+elixir.name;
-    mainHtmlElement.appendChild(newElement);
-for(const ingredientes of elixir.ingredients){
+const mainHtmlElement = document.getElementById('llistaIngredients');
 
-   
 
-  const ing = document.getElementById('llistaWizards');
-  const newElement3 = document.createElement('ul');
-  newElement3.innerHTML = `
+titol.innerText = "Ingredientes de la Pocion:"+elixir.name;
+const ing = document.getElementById('llistaIng');
+let contingutIng= '<ul>'
+if (elixir.ingredients.length === 0){
+  let contingutIng2 = `
+  <li id="ingredients">No es coneixen els ingredients</li>
+  `;
+
+  contingutIng= contingutIng+contingutIng2;
+
+} else {
+  for(const ingredientes of elixir.ingredients){
+
+  
+  let contingutIng2 = `
   <li id="ingredients">${ingredientes.name}</li>
   `;
-  ing.appendChild(newElement3);
+
+  contingutIng= contingutIng+contingutIng2;
+  
 
 }
+}
+
+let tancarContingut = '</ul>'
+contingutIng= contingutIng + tancarContingut;
+ing.innerHTML=contingutIng;
 }
 
 async function getIngredients(id){
