@@ -16,4 +16,12 @@
 }
 
 
+#flotant{
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: #839d9e;
+}
+
+
 

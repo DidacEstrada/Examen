@@ -10,28 +10,38 @@ window.onload = async () => {
     const mainHtmlElement = document.getElementById('llistaWizards');
     const newElement = document.createElement('h4');
     const boton = document.createElement('button');
+    boton.innerHTML='Destacar';
     
+
     if(wizard.firstName!==null){
+
    newElement.innerText = wizard.firstName + wizard.lastName + ":";
    mainHtmlElement.appendChild(newElement);
-   boton.onclick = destacarWizard(wizard.firstName + wizard.lastName);
+   
+
     } else{
+
       newElement.innerText =wizard.lastName + ":";
    mainHtmlElement.appendChild(newElement);
-   boton.onclick = destacarWizard(wizard.lastName);
+   
     }
-
-    
-    
-
-    boton.innerHTML='Destacar';
     
     mainHtmlElement.appendChild(boton);
 
+    boton.onclick= function () {
+      const flotant = document.getElementById('flotant');
+      const mago = document.getElementById('mago');
+
+      if(wizard.firstName!==null){
+      mago.innerText= wizard.firstName + '' + wizard.lastName;
+      } else {
+        mago.innerText= wizard.lastName;
+      }
 
 
+    flotant.appendChild(mago);
+    }
 
-    
     for(const elixir of wizard.elixirs){
         const pocions = document.getElementById('llistaWizards');
         const newElement2 = document.createElement('ul');
