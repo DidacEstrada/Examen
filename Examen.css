@@ -4,14 +4,16 @@
 
 #ingredients {
   flex: 0 1 50%; /* flex-grow: 0 no creixera mes enlla del seu tamany base, flex-shrink:1 poden reduir tamany si es encessari i flex-basis:50% el tamany base es el 50% del tamany del contendor felxible*/
-
-
 }
+
 #llistaWizards{
-
-  flex: 0 1 30%; 
-
-
+  flex: 0 1 30%;
+ 
 }
+
+.alcostat{
+  display: inline-block;
+}
+
 
 

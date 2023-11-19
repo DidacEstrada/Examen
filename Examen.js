@@ -9,6 +9,7 @@ window.onload = async () => {
   for(const wizard of wizards){
     const mainHtmlElement = document.getElementById('llistaWizards');
     const newElement = document.createElement('h4');
+    const boton = document.createElement('button');
     
     if(wizard.firstName!==null){
    newElement.innerText = wizard.firstName + wizard.lastName + ":";
@@ -17,6 +18,15 @@ window.onload = async () => {
       newElement.innerText =wizard.lastName + ":";
    mainHtmlElement.appendChild(newElement);
     }
+
+    
+    boton.onclick = destacarElement();
+
+    boton.innerHTML='Destacar';
+    
+    mainHtmlElement.appendChild(boton);
+
+
 
 
     
@@ -42,6 +52,7 @@ window.onload = async () => {
 
 
 };
+
 
 
 async function getAllWizards(){
@@ -94,6 +105,10 @@ if (elixir.ingredients.length === 0){
 let tancarContingut = '</ul>'
 contingutIng= contingutIng + tancarContingut;
 ing.innerHTML=contingutIng;
+}
+
+async function destacarElement(){
+
 }
 
 async function getIngredients(id){
